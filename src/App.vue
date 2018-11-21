@@ -14,7 +14,10 @@
  
       <category items="KIDS"></category>
       <album name="Kids" category="kids"></album>
-      <album2 name="Friendship"></album2>
+      <album name="Friendship" category="friendship"></album>
+      <album name="Seasons" category="seasons"></album>
+      <album name="Landscape" category="landscape"></album>
+      <album name="Concert" category="concert"></album>
     </v-content>
   </v-app>
 </template>
