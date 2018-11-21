@@ -33,6 +33,7 @@
     <table id="headerTable">
         <tr>        
             <td>
+                <router-link to="/kids">
                 <v-hover>
                 <v-card slot-scope="{ hover }"
                 :class="`elevation-${hover ? 12 : 2}`">
@@ -54,9 +55,11 @@
             </div>
             </v-card>
             </v-hover>
+            </router-link>
             </td>
                 
             <td>
+                <router-link to="/landscape">
                 <v-hover>
                 <v-card slot-scope="{ hover }"
                 :class="`elevation-${hover ? 12 : 2}`">
@@ -78,6 +81,7 @@
             </div>
                 </v-card>
                 </v-hover>
+                </router-link>
             </td>
 
             

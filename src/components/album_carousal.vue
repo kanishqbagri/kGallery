@@ -1,9 +1,10 @@
 <template>
-    <v-carousel>
+    <v-carousel height="675px">
     <v-carousel-item
       v-for="(item,i) in images"
       :key="i"
-      :src="i"
+      :src="item"
+      style="height: auto"
     ></v-carousel-item>
   </v-carousel>
 </template>
@@ -17,3 +18,5 @@
     }
   }
 </script>
+<style>
+</style>
