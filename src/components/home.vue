@@ -1,12 +1,25 @@
 <template>
   <v-app>
 <v-toolbar>
-    <v-toolbar-side-icon></v-toolbar-side-icon>
+    <router-link to="/home">
+        <v-icon x-large>home</v-icon>
+      </router-link>
     <v-toolbar-title>Memories</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat>Search</v-btn>
-      <v-btn flat>Favourites</v-btn>
+      
+      
+      <v-card-text>
+        <v-autocomplete
+          v-model="model"
+          :items="categories"
+          :label="`Search`"
+          persistent-hint
+          prepend-icon='search'
+        >
+        </v-autocomplete>
+      </v-card-text>
+    
     </v-toolbar-items>
   </v-toolbar>
 
@@ -38,7 +51,9 @@ export default {
   },
   data () {
     return {
-      //
+      isEditing: false,
+      model: null,
+      categories: ['Landscape','Kids','Concerts','Friendship','Seasons']
     }
   }
 }
