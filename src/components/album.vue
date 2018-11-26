@@ -13,13 +13,14 @@
                     :class="`elevation-${hover ? 12 : 2}`"
                     v-cloak>
                         <v-img @click="tapped(image)" :src="image" name="imgSize"></v-img>
-                        <v-dialog v-model="dialog" width="90%" v-if="selectedImage">
-                            <v-img :src="selectedImage" width="90%" v-model="dialog"></v-img>                            
+                        <v-dialog v-model="dialog" width="75%" v-if="selectedImage">
+                            <v-img :src="selectedImage" width="75%" v-model="dialog"></v-img>                            
                                 <v-spacer></v-spacer>
                                 <v-btn
                                 color="primary"
                                 flat
                                 @click="dialog = false"
+                                right
                                 >
                                 Close
                                 </v-btn>

@@ -196,7 +196,7 @@ export default {
                
                 {
                    name:"Concerts",
-                   url: "static/img/concert/concert1.jpg"
+                   url: "static/img/concerts/concert1.jpg"
                }
             ]
         }
