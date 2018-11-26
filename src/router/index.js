@@ -3,7 +3,10 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/home'
 import kids from '@/components/AppKids'
+import friendship from '@/components/AppFriendship'
 import landscape from '@/components/AppLandscape'
+import seasons from '@/components/AppSeasons'
+import concerts from '@/components/AppConcerts'
 
 Vue.use(Router)
 
@@ -15,19 +18,34 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/Home',
+      path: '/home',
       name: 'Home',
       component: Home
     },
     {
-      path: '/kids',
+      path: '/Kids',
       name: 'kids',
       component: kids
     },
     {
-      path: '/landscape',
+      path: '/Friendship',
+      name: 'friendship',
+      component: friendship
+    },
+    {
+      path: '/Landscape',
       name: 'landscape',
       component: landscape
+    },
+    {
+      path: '/Seasons',
+      name: 'seasons',
+      component: seasons
+    },
+    {
+      path: '/Concerts',
+      name: 'concerts',
+      component: concerts
     }
   ]
 })

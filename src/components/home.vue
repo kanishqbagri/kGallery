@@ -7,19 +7,19 @@
     <v-toolbar-title>Memories</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
-      
-      
       <v-card-text>
-        <v-autocomplete
-          v-model="model"
+          <v-select
           :items="categories"
-          :label="`Search`"
-          persistent-hint
-          prepend-icon='search'
-        >
-        </v-autocomplete>
+          :key="1"
+          v-model="selectedCategory"
+          label="Select"
+            autocomplete
+            v-on:change="gotoSelection"
+            id="searchCategory"
+            prepend-icon="search"
+          >
+          </v-select>
       </v-card-text>
-    
     </v-toolbar-items>
   </v-toolbar>
 
@@ -29,8 +29,8 @@
       <album name="Kids" category="kids"></album>
       <album name="Friendship" category="friendship"></album>
       <album name="Seasons" category="seasons"></album>
-      <album name="Landscape" category="landscape"></album>
-      <album name="Concert" category="concert"></album>
+      <album name="Landscapes" category="landscape"></album>
+      <album name="Concerts" category="concert"></album>
     </v-content>
   </v-app>
 </template>
@@ -53,8 +53,15 @@ export default {
     return {
       isEditing: false,
       model: null,
-      categories: ['Landscape','Kids','Concerts','Friendship','Seasons']
+      categories: ['Landscape','Kids','Concerts','Friendship','Seasons'],
+      url:null
     }
+  },
+  methods:{
+      gotoSelection : function(){
+          console.log('URL', this.selectedCategory);
+          this.$router.push({path:'/' + this.selectedCategory })
+      }
   }
 }
 </script>

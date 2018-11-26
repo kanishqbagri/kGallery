@@ -86,6 +86,7 @@
 
             
             <td>
+                <router-link to="/friendship">
                 <v-hover>
                 <v-card slot-scope="{ hover }"
                 :class="`elevation-${hover ? 12 : 2}`">
@@ -101,16 +102,17 @@
                 alt="Category"
               >
             </v-avatar>
-            
             </div>
             <div>
                 <v-card-text class="text-md-center">{{ category[2].name }}</v-card-text>
             </div>
             </v-card>
                 </v-hover>
+                </router-link>
             </td>
             
             <td>
+                <router-link to="/seasons">
                 <v-hover>
                 <v-card slot-scope="{ hover }"
                 :class="`elevation-${hover ? 12 : 2}`">
@@ -133,8 +135,10 @@
             </div>
             </v-card>
                 </v-hover>
+                </router-link>
             </td>
             <td>
+                <router-link to="/concerts">
                 <v-hover>
                 <v-card slot-scope="{ hover }"
                 :class="`elevation-${hover ? 12 : 2}`">
@@ -157,6 +161,7 @@
             </div>
             </v-card>
                 </v-hover>
+                </router-link>
             </td>
         </tr>
         
