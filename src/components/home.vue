@@ -31,7 +31,7 @@
       <album name="Friendship" category="friendship"></album>
       <album name="Seasons" category="seasons"></album>
       <album name="Landscapes" category="landscape"></album>
-      <album name="Concerts" category="concert"></album>
+      <album name="Concerts" category="concerts"></album>
     </v-content>
   </v-app>
 </template>
