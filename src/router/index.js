@@ -4,7 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/home'
 import kids from '@/components/AppKids'
 import friendship from '@/components/AppFriendship'
-import landscape from '@/components/AppLandscape'
+import landscapes from '@/components/AppLandscape'
 import seasons from '@/components/AppSeasons'
 import concerts from '@/components/AppConcerts'
 
@@ -33,9 +33,9 @@ export default new Router({
       component: friendship
     },
     {
-      path: '/Landscape',
-      name: 'landscape',
-      component: landscape
+      path: '/Landscapes',
+      name: 'landscapes',
+      component: landscapes
     },
     {
       path: '/Seasons',

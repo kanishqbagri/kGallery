@@ -1,11 +1,8 @@
 <template>
     <div class="container-outer">
-        <h2>{{ name }}</h2>
+        
         <div class="text-xs-center"></div>
-      <!-- <a v-for="image in images" 
-        :key="image"
-        :href="image">
-        <img :tap="tapped" :src="image" name="imgSize"></div> -->
+        <h2>{{ name }}</h2>
         <div class="container-internal">
             <div class="ci_image" v-for="image in imageList()" :key="image">                
                 <v-hover> 
@@ -13,7 +10,14 @@
                     :class="`elevation-${hover ? 12 : 2}`"
                     v-cloak>
                         <v-img @click="tapped(image)" :src="image" name="imgSize"></v-img>
-                        <v-dialog v-model="dialog" width="75%" v-if="selectedImage">
+                    </v-card>
+                </v-hover>
+                
+            </div>
+       </div>
+       <v-dialog v-model="dialog" width="75%" v-if="selectedImage" >
+                            
+                            <h1>Hello</h1>
                             <v-img :src="selectedImage" width="75%" v-model="dialog"></v-img>                            
                                 <v-spacer></v-spacer>
                                 <v-btn
@@ -25,11 +29,6 @@
                                 Close
                                 </v-btn>
                         </v-dialog>
-                    </v-card>
-                </v-hover>
-                
-            </div>
-       </div>
     </div>
   
 </template>
@@ -52,11 +51,11 @@ export default {
         },
           categories_t:{
           images:["static/img_t/kids/kids1.jpg", "static/img_t/kids/kids2.jpg","static/img_t/kids/kids3.jpg","static/img_t/kids/kids4.jpg","static/img_t/kids/kids5.jpg","static/img_t/kids/kids6.jpg","static/img_t/kids/kids7.jpg","static/img_t/kids/kids8.jpg","static/img_t/kids/kids9.jpg"],
-          kids:["static/img_t/kids/kids1.jpg","static/img_t/kids/kids2.jpg","static/img_t/kids/kids3.jpg","static/img_t/kids/kids4.jpg","static/img_t/kids/kids5.jpg","static/img_t/kids/kids6.jpg","static/img_t/kids/kids7.jpg","static/img_t/kids/kids8.jpg","static/img_t/kids/kids9.jpg"],
-          friendship:["static/img_t/friendship/friendship1.jpg", "static/img_t/friendship/friendship2.jpg","static/img_t/friendship/friendship3.jpg","static/img_t/friendship/friendship4.jpg","static/img_t/friendship/friendship5.jpg","static/img_t/friendship/friendship6.jpg","static/img_t/friendship/friendship7.jpg","static/img_t/friendship/friendship8.jpg","static/img_t/friendship/friendship9.jpg"],
-          seasons:["static/img_t/seasons/seasons1.jpg", "static/img_t/seasons/seasons2.jpg","static/img_t/seasons/seasons3.jpg","static/img_t/seasons/seasons4.jpg","static/img_t/seasons/seasons5.jpg","static/img_t/seasons/seasons6.jpg","static/img_t/seasons/seasons7.jpg","static/img_t/seasons/seasons8.jpg","static/img_t/seasons/seasons9.jpg","static/img_t/seasons/seasons10.jpg","static/img_t/seasons/seasons11.jpg","static/img_t/seasons/seasons12.jpg","static/img_t/seasons/seasons13.jpg"],
-          concerts:["static/img_t/concerts/concert1.jpg", "static/img_t/concerts/concert2.jpg","static/img_t/concerts/concert3.jpg","static/img_t/concerts/concert4.jpg","static/img_t/concerts/concert5.jpg","static/img_t/concerts/concert6.jpg","static/img_t/concerts/concert7.jpg","static/img_t/concerts/concert8.jpg"],
-          landscape:["static/img_t/landscape/landscape1.jpg", "static/img_t/landscape/landscape2.jpg","static/img_t/landscape/landscape3.jpg","static/img_t/landscape/landscape4.jpg","static/img_t/landscape/landscape5.jpg","static/img_t/landscape/landscape6.jpg","static/img_t/landscape/landscape7.jpg","static/img_t/landscape/landscape8.jpg","static/img_t/landscape/landscape9.jpg"]        
+          Kids:[],
+          Friendship:[],
+          Seasons:[],
+          Concerts:[],
+          Landscapes:[]        
         },
         dialog: false,
         selectedImage: null
@@ -67,17 +66,52 @@ export default {
             this.selectedImage=img;
             this.dialog=true;
             console.log("tapped on ", img)
+           // this.loadData();
         },
         imageList: function() {
             console.log("Getting images");
             console.log( "props", this.category );
             console.log( "cat", this.categories );
-            return this.categories_t[ this.category ]
+            return this.categories_t[ this.category ];
             // return this.images2;
+        },
+        loadData: function() {
+        // var url="http://ec2-54-85-195-232.compute-1.amazonaws.com:8080/pGallery/getImageData/" + "Kids";
+        var url="/pGallery/getImageData/" + this.category;
+            fetch(url, {
+                method: "GET",
+                cache: "no-cache",
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+
+                },
+            })
+            .then((response) => 
+                {
+                console.log('RESPONSE', response);
+                return response.json() ;                
+                })
+            .then((responseData) => { // parse the Response Data and populate the Array
+                var imageCategory = [];
+
+                for (var i=0;i<responseData.length; i++){
+                    imageCategory[i]=responseData[i].name;
+                    console.log('tag', responseData[i].name);
+                }
+                console.log('CATEGORY SET: ', this.category );
+                this.categories_t[this.category]=imageCategory;
+            })
+                .catch(function(err) {
+                console.log(err);
+            })
         }
     },
     computed:{
 
+    },
+    beforeMount() {
+        console.log("Hello: Loading");
+        this.loadData();
     }
 }
 </script>

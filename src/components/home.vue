@@ -27,11 +27,11 @@
     <v-content>
  
       <category items="KIDS"></category>
-      <album name="Kids" category="kids"></album>
-      <album name="Friendship" category="friendship"></album>
-      <album name="Seasons" category="seasons"></album>
-      <album name="Landscapes" category="landscape"></album>
-      <album name="Concerts" category="concerts"></album>
+      <album name="Kids" category="Kids"></album>
+      <album name="Friendship" category="Friendship"></album>
+      <album name="Seasons" category="Seasons"></album>
+      <album name="Landscapes" category="Landscapes"></album>
+      <album name="Concerts" category="Concerts"></album>
     </v-content>
   </v-app>
 </template>
