@@ -59,7 +59,7 @@
             </td>
                 
             <td>
-                <router-link to="/landscape">
+                <router-link to="/landscapes">
                 <v-hover>
                 <v-card slot-scope="{ hover }"
                 :class="`elevation-${hover ? 12 : 2}`">
