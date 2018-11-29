@@ -28,6 +28,7 @@
  
       <category items="KIDS"></category>
       <album name="Kids" category="Kids"></album>
+      <album name="Papa's Journey" category="Papa_Journey"></album>
       <album name="Friendship" category="Friendship"></album>
       <album name="Seasons" category="Seasons"></album>
       <album name="Landscapes" category="Landscapes"></album>

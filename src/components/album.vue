@@ -46,7 +46,8 @@ export default {
           Friendship:[],
           Seasons:[],
           Concerts:[],
-          Landscapes:[]        
+          Landscapes:[],
+          Papa_Journey:[],  
         },
         dialog: false,
         selectedImage: null
@@ -61,7 +62,6 @@ export default {
         imageList: function() {
             console.log("Getting images");
             console.log( "props", this.category );
-            console.log( "cat", this.categories );
             return this.categories_t[ this.category ];
         },
         loadData: function() {
