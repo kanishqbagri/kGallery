@@ -47,8 +47,6 @@ export default {
   components: {
     category,
     album,
-    album2,
-    albumView
   },
   data () {
     return {

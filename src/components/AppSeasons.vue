@@ -4,7 +4,7 @@
       <router-link to="/home">
         <v-icon x-large>home</v-icon>
       </router-link>
-    <v-toolbar-title>Memories</v-toolbar-title>
+    <v-toolbar-title>Seasons</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn flat disabled="true">Favourites</v-btn>

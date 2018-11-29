@@ -15,19 +15,11 @@
                 
             </div>
        </div>
-       <v-dialog v-model="dialog" width="75%" v-if="selectedImage" >
-                            
-                            <h1>Hello</h1>
-                            <v-img :src="selectedImage" width="75%" v-model="dialog"></v-img>                            
+                            <v-dialog v-model="dialog" width="85%" v-if="selectedImage">
+                            <v-card-row>
+                            <v-img :src="selectedImage" width="100%" v-model="dialog"></v-img>                            
                                 <v-spacer></v-spacer>
-                                <v-btn
-                                color="primary"
-                                flat
-                                @click="dialog = false"
-                                right
-                                >
-                                Close
-                                </v-btn>
+                            </v-card-row>   
                         </v-dialog>
     </div>
   
@@ -50,7 +42,6 @@ export default {
             landscape:["static/img/landscape/landscape1.jpg", "static/img/landscape/landscape2.jpg","static/img/landscape/landscape3.jpg","static/img/landscape/landscape4.jpg","static/img/landscape/landscape5.jpg","static/img/landscape/landscape6.jpg","static/img/landscape/landscape7.jpg","static/img/landscape/landscape8.jpg","static/img/landscape/landscape9.jpg"],
         },
           categories_t:{
-          images:["static/img_t/kids/kids1.jpg", "static/img_t/kids/kids2.jpg","static/img_t/kids/kids3.jpg","static/img_t/kids/kids4.jpg","static/img_t/kids/kids5.jpg","static/img_t/kids/kids6.jpg","static/img_t/kids/kids7.jpg","static/img_t/kids/kids8.jpg","static/img_t/kids/kids9.jpg"],
           Kids:[],
           Friendship:[],
           Seasons:[],
@@ -66,24 +57,20 @@ export default {
             this.selectedImage=img;
             this.dialog=true;
             console.log("tapped on ", img)
-           // this.loadData();
         },
         imageList: function() {
             console.log("Getting images");
             console.log( "props", this.category );
             console.log( "cat", this.categories );
             return this.categories_t[ this.category ];
-            // return this.images2;
         },
         loadData: function() {
-        // var url="http://ec2-54-85-195-232.compute-1.amazonaws.com:8080/pGallery/getImageData/" + "Kids";
         var url="/pGallery/getImageData/" + this.category;
             fetch(url, {
                 method: "GET",
                 cache: "no-cache",
                 headers: {
                     "Content-Type": "application/json; charset=utf-8",
-
                 },
             })
             .then((response) => 

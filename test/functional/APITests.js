@@ -9,4 +9,5 @@ it('Rest call should return a valid response', ()=>{
    var i= new ImageService();
    var response=i.getImageData("Kids");
    console.log('tag', response);
+   assert.equal(response, !null);
 })
