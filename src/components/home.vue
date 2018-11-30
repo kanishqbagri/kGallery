@@ -4,7 +4,7 @@
     <router-link to="/home">
         <v-icon x-large>home</v-icon>
       </router-link>
-    <v-toolbar-title id="toolbarTitle">Its My Gallery</v-toolbar-title>
+    <v-toolbar-title id="toolbarTitle">The Way I Remember It..</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-card-text>
@@ -20,7 +20,10 @@
           >
           </v-select>
       </v-card-text>
-      <v-btn color="info" flat light medium>Upload</v-btn>
+      <!-- <v-btn color="info" flat light medium>Upload</v-btn> -->
+      <v-btn color="info" flat light medium>
+      <upload-button title="Upload" :selectedCallback="fileSelectedFunc"></upload-button>
+      </v-btn>
     </v-toolbar-items>
   </v-toolbar>
 
@@ -42,12 +45,13 @@ import album from '@/components/album'
 import album2 from '@/components/album_2'
 import category from "@/components/category"
 import albumView from "@/components/albumView"
-
+import UploadButton from '@/components/UploadButton';
 export default {
   name: 'Home',
   components: {
     category,
     album,
+    UploadButton,
   },
   data () {
     return {
