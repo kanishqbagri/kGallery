@@ -15,9 +15,9 @@
                 
             </div>
        </div>
-                            <v-dialog v-model="dialog" width="85%" max-height="85%" v-if="selectedImage" scrollable="false">
+                            <v-dialog v-model="dialog" width="85%"  v-if="selectedImage" >
                             <v-card-row>
-                            <v-img :src="selectedImage" width="100%" height="85%" v-model="dialog"></v-img>                            
+                            <v-img :src="selectedImage" width="100%"  v-model="dialog"></v-img>                            
                                 <v-spacer></v-spacer>
                             </v-card-row>   
                         </v-dialog>
