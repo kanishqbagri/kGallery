@@ -58,7 +58,7 @@ export default {
     return {
       isEditing: false,
       model: null,
-      categories: ['Landscape','Kids','Concerts','Friendship','Seasons'],
+      categories: ['Landscapes','Kids','Concerts','Friendship','Seasons'],
       url:null
     }
   },
