@@ -47,7 +47,8 @@ export default {
           Seasons:[],
           Concerts:[],
           Landscapes:[],
-          Papa_Journey:[],  
+          Papa_Journey:[],
+          myuploads:[],
         },
         dialog: false,
         selectedImage: null

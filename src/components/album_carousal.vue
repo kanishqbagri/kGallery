@@ -39,7 +39,6 @@
             console.log("Getting images");
             console.log( "props", this.category );
             return this.categories_t[ this.category ]
-            // return this.images2;
         }
     }
   }

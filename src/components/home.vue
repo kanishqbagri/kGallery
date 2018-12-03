@@ -36,6 +36,7 @@
       <album name="Seasons" category="Seasons"></album>
       <album name="Landscapes" category="Landscapes"></album>
       <album name="Concerts" category="Concerts"></album>
+      <album name="Recent Uploads" category="myuploads"></album>
     </v-content>
   </v-app>
 </template>
