@@ -1,4 +1,8 @@
 require('babel-register')
+// Get Selenium and the drivers
+var seleniumServer = require('selenium-server');
+var chromedriver = require('chromedriver');
+var geckodriver = require('geckodriver');
 var config = require('../../config')
 
 // http://nightwatchjs.org/gettingstarted#settings-file
@@ -13,17 +17,36 @@ module.exports = {
     host: '127.0.0.1',
     port: 4444,
     cli_args: {
-      'webdriver.chrome.driver': require('chromedriver').path
+      'webdriver.chrome.driver': require('chromedriver').path,
+      'webdriver.gecko.driver': require('geckodriver').path
     }
   },
-
+  test_workers: {
+    // This allows more then one browser to be opened and tested in at once
+    enabled: true,
+    workers: 'auto'
+  },
   test_settings: {
     default: {
+      screenshots: {
+        enabled: false
+      },
+      globals: {
+        // How long to wait (in milliseconds) before the test times out
+        waitForConditionTimeout: 5000
+      },
+      desiredCapabilities: {
+        // The default test
+        browserName: 'chrome',
+        javascriptEnabled: true,
+        acceptSslCerts: true,
+        nativeEvents: true
+      },
       selenium_port: 4444,
       selenium_host: 'localhost',
       silent: true,
       globals: {
-        devServerURL: 'http://localhost:' + (process.env.PORT || config.dev.port)
+        devServerURL: 'http://localhost:8080/'
       }
     },
 
@@ -31,7 +54,8 @@ module.exports = {
       desiredCapabilities: {
         browserName: 'chrome',
         javascriptEnabled: true,
-        acceptSslCerts: true
+        acceptSslCerts: true,
+        nativeEvents: true
       }
     },
 
